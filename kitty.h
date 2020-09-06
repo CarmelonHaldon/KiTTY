@@ -218,6 +218,13 @@ extern char * CtHelperPath ;
 // Chemin vers le programme WinSCP
 extern char * WinSCPPath ;
 
+
+
+// TODO CarmelonHaldon: ...
+extern char * RandSeedFile ;
+
+
+
 // Chemin vers le programme pscp.exe
 extern char * PSCPPath  ;
 

@@ -26,6 +26,13 @@ static const char *const puttystr = PUTTY_REG_POS "\\Sessions";
 #include "kitty_store.h"
 #endif
 
+
+
+// TODO CarmelonHaldon: ...
+#include "kitty.h"
+
+
+
 static bool tried_shgetfolderpath = false;
 static HMODULE shell32_module = NULL;
 DECL_WINDOWS_FUNCTION(static, HRESULT, SHGetFolderPathA, 
@@ -1031,6 +1038,17 @@ static HANDLE access_random_seed(int action)
      * best location in which we actually find one, and then
      * writing to the best location in which we can _create_ one).
      */
+
+
+
+	// TODO CarmelonHaldon: ...
+    {
+		if (try_random_seed(RandSeedFile, action, &rethandle)) {
+			return rethandle;
+		}
+    }
+
+
 
     /*
      * First, try the location specified by the user in the

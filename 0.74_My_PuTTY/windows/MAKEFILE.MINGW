@@ -2157,6 +2157,13 @@ cross64:
 
 9bis: putty.exe putty_portable.exe plink.exe pscp.exe psftp.exe pageant.exe puttygen.exe
 
+
+
+# TODO CarmelonHaldon: ...
+CarmelonHaldon: putty.exe putty_portable.exe
+
+
+
 # AJOUTER
 # -DMASTER_PASSWORD=`cat ../../masterpassword.txt` 			à la compilation de cmdline.o
 # -DMASTER_PASSWORD=`cat ../../masterpassword.txt` 			à la compilation de settings.o

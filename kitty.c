@@ -341,6 +341,13 @@ char * CtHelperPath = NULL ;
 // Chemin vers le programme WinSCP
 char * WinSCPPath = NULL ;
 
+
+
+// TODO CarmelonHaldon: ...
+char * RandSeedFile = NULL ;
+
+
+
 // Chemin vers le programme pscp.exe
 char * PSCPPath = NULL ;
 
@@ -691,7 +698,7 @@ char **FolderList=NULL ;
 int readINI( const char * filename, const char * section, const char * key, char * pStr) ;
 int writeINI( const char * filename, const char * section, const char * key, char * pStr) ;
 int delINI( const char * filename, const char * section, const char * key ) ;
-// Initialise la liste des folders a  partir des sessions deja existantes et du fichier kitty.ini
+// Initialise la liste des folders aï¿½ partir des sessions deja existantes et du fichier kitty.ini
 void InitFolderList( void ) {
 	char * pst, fList[4096], buffer[4096] ;
 	int i ;
@@ -1320,6 +1327,14 @@ void CreateDefaultIniFile_old( void ) {
 			writeINI( KittyIniFile, INIT_SECTION, "#uploaddir", "." ) ;
 			writeINI( KittyIniFile, INIT_SECTION, "#userpasssshnosave", "no" ) ;
 			writeINI( KittyIniFile, INIT_SECTION, "#WinSCPPath", "" ) ;
+
+
+
+// TODO CarmelonHaldon: ...
+			writeINI( KittyIniFile, INIT_SECTION, "#RandSeedFile", "" ) ;
+
+
+
 #ifdef MOD_ZMODEM
 			writeINI( KittyIniFile, INIT_SECTION, "zmodem", "yes" ) ;
 #endif
@@ -3141,7 +3156,7 @@ void routine_inputbox_password( void * phwnd ) {
 	GetAndSendLinePassword( MainHwnd ) ;
 	}
 
-// Demarre le timer d'autocommand a  la connexion
+// Demarre le timer d'autocommand aï¿½ la connexion
 void CreateTimerInit( void ) {
 	SetTimer(MainHwnd, TIMER_INIT, init_delay, NULL) ; 
 	}
@@ -5195,6 +5210,19 @@ void LoadParameters( void ) {
 			WinSCPPath = (char*) malloc( strlen(buffer) + 1 ) ; strcpy( WinSCPPath, buffer ) ;
 		}
 	}
+
+
+
+	// TODO CarmelonHaldon: ...
+	if( ReadParameter( INIT_SECTION, "RandSeedFile", buffer ) ) {
+		if( existfile( buffer ) ) { 
+			if( RandSeedFile!=NULL) { free(RandSeedFile) ; RandSeedFile = NULL ; }
+			RandSeedFile = (char*) malloc( strlen(buffer) + 1 ) ; strcpy( RandSeedFile, buffer ) ;
+		}
+	}
+
+
+
 	if( ReadParameter( INIT_SECTION, "wintitle", buffer ) ) {  if( !stricmp( buffer, "NO" ) ) TitleBarFlag = 0 ; }
 #ifdef MOD_ZMODEM
 	if( ReadParameter( INIT_SECTION, "zmodem", buffer ) ) { 
