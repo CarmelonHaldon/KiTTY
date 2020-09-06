@@ -62,6 +62,6 @@ Simple guide to setup the compile environment:
 - Download the `mingw-get-setup.exe` from https://osdn.net/projects/mingw/
 - Execute the installer and select the **GUI**.
 - After installing it, only the "packager manager" it's in fact installed, so execute `$MinGW\libexec\mingw-get\guimain.exe` and select in the Basic Setup the packages: **"mingwg-developer-tools", "mingw32-base", "mingw32-gcc-g++" and "msys-base"**.
-- When all is installed, to open the SHELL execute `$MinGW\msys\1.0\msys.bat`. Then from from this shell you can compile. Example: `cd $KiTTY_DIR/0.70_My_PuTTY/windows` and `make -f MAKEFILE.MINGW 9bis`.
+- When all is installed, to open the SHELL execute `$MinGW\msys\1.0\msys.bat`. Then from from this shell you can compile. Example: `cd $KiTTY_DIR/0.70_My_PuTTY/windows` and `make -f MAKEFILE.MINGW CarmelonHaldon`.
 
 Original website is [https://kitty.9bis.com/](https://kitty.9bis.com/ "KiTTY website").
